@@ -1,0 +1,234 @@
+@font-face {
+	font-family: 'iglesia';
+	src: url(../FONT/Iglesia-Light/Iglesia.otf);
+	src: url(../FONT/Iglesia-Light/Iglesia.ttf);
+}
+@font-face {
+	font-family: 'pirateBay';
+	src: url(../FONT/PiratesBay.ttf);
+}
+* {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	font-family: 'pirateBay';
+	color: white;
+}
+form input {
+	color : black;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+body {
+	width: 80%;
+	min-width: 800px;
+	margin: auto;
+	background-color: #1D1D1D;
+	background-image: url("../IMG/wallpaper.png");
+	background-position: top;
+	background-size: auto 100%;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+h1 {
+	color: white;
+	font-family: 'iglesia';
+	font-weight: lighter;
+	font-size: 8vw;
+	width: 100%;
+	text-align: center;
+}
+h1 a {
+	font-family: 'iglesia';
+	font-weight: lighter;
+}
+h3 {
+	font-size: 2vw;
+	text-decoration: underline;
+}
+h3:visited, h3:hover {
+	background-color: #700;
+	text-transform: uppercase;
+}
+header {
+	margin-top: 20px;
+	border-top-right-radius: 0px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 150px;
+}
+header img {
+	height: 140px;
+	position: relative;
+	right: 10px;
+}
+header img[alt='Logo Afpa-Bay'] {
+	border-radius: 75px;
+	border-top-right-radius: 0px;
+}
+main {
+	max-height: 700px;
+	overflow: auto;
+}
+ul {
+	width: 80%;
+	margin: auto;
+}
+.imgDestroy {
+	border-radius: 1000px;
+}
+.film {
+	margin-bottom: 30px;
+	height: 150px;
+	background-color: #0007;
+	border : 1px solid #700;
+	border-radius: 50px;
+	border-top-right-radius: 0px;
+}
+.film:first-child {
+	margin-top: 10px;
+}
+.filmInfo {
+	display: flex;
+	height: 150px;
+}
+.filmInfo img {
+	padding: 5px;
+	width: 140px;
+	height: 140px;
+	border-radius: 50px;
+	border-top-right-radius: 0px;
+}
+.filmInfoText {
+	display: flex;
+	flex-direction: column;
+	text-align: justify;
+	height: 100%;
+	padding-right: 20px;
+	padding-left: 10px;
+}
+.filmInfoText h3 {
+	flex: 2;
+	margin-bottom :10px;
+}
+.synopsis {
+	flex: 4;
+	overflow: auto;
+}
+.infoDivers {
+	flex: 1;
+}
+.tag {
+	margin: 0px 75px 0px 75px;
+	background-color: #FFFD;
+	border-radius: 1000px;
+	border-top-right-radius: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.tag p {
+	color: black;
+}
+.hidden {
+	display: none;
+}
+.error {
+	font-size: 2em;
+}
+.imgImportant {
+	padding-left: 15px;
+	padding-top: 5px;
+}
+.list img {
+	flex : 1;
+}
+.miseEnForme {
+	flex : 2;
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+}
+
+
+@media screen and (max-width: 800px) {
+	body {
+		width: 100%;
+		min-width: 0px;
+	}
+	ul {
+		width: 100%;
+	}
+	header {
+		border-radius: 0px;
+	}
+	.film {
+		border-radius: 0px;
+	}
+	.tag {
+		width: 100%;
+		border-radius: 0px;
+		margin: 0px;
+	}
+	h3 {
+		text-align: center;
+	}
+	.filmInfo {
+		display: block;
+		height: auto;
+	}
+	.filmInfoText {
+		display: block;
+	}
+	.film {
+		height: auto;
+	}
+	img {
+		display: none;
+	}
+	.imgImportant {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+.lienImgImportant {
+		width: 20%;
+	}
+}
+
+.logout {
+	height: 30px;
+}
+#inscription {
+	display: flex;
+	justify-content: space-around;
+}
+.formConnection {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+	padding : 30px;
+	background-color: #7007;
+	border: 2px solid white;
+}
+.formConnection img {
+	width : 50%;
+}
+.imgcontainer, .container {
+margin-left: auto;
+margin-right: auto;
+}
+
+@media screen and (max-width: 600px) {
+	h1 {
+		font-size: 3.5em;
+	}
+	h3 {
+		font-size: 1.5em;
+	}
+}
