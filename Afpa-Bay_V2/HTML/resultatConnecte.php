@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $resultat = $_GET['res'];
 
@@ -11,6 +12,7 @@ else if ($resultat == 1){
 }
 else if ($resultat == 2){
     echo "Le captcha a été mal renseigné, veuillez recommencer ..."."<br/>";
+
 }
 else if ($resultat == 3){
     echo "La combinaison pseudo & password renseignée n'est pas dans notre base de données."."<br/>".

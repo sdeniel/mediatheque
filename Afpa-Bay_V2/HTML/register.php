@@ -3,8 +3,7 @@ FICHIER.PHP QUI PERMET DE S'ENREGISTRER DANS LA BASE DE DONNEES
 VERIFICATION QUE CE N'EST PAS UN BOT AVEC UN CAPTCHA
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 <?php
-
-
+session_start();
 //Informations d'entrées du serveur + base de données (+ table associée ?)
 $_SESSION['serveur'] = "localhost";
 $_SESSION['pseudo'] = "root";
@@ -18,7 +17,6 @@ $pseudoIns = filter_input(INPUT_POST, 'pseudoIns', FILTER_SANITIZE_STRING);
 $passwordIns = filter_input(INPUT_POST, 'passwordIns', FILTER_SANITIZE_STRING);
 $emailIns = filter_input(INPUT_POST, 'emailIns', FILTER_VALIDATE_EMAIL);
 $captcha = filter_input(INPUT_POST, 'verif_code', FILTER_SANITIZE_STRING);
-
 
 if(isset($captcha) && ($captcha == $_SESSION['aleat_nbr']))
 {

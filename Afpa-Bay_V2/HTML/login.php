@@ -32,9 +32,9 @@ CREATION DE 2 FORMULAIRES : L'UN pour SE CONNECTER, L'AUTRE POUR S'ENREGISTRER
 	            </div>
 	        </form>
 
-					<?php include_once('register.php'); ?>
+
 	        <!-- FORMULAIRE INSCRIPTION -->
-	        <form class="formConnection" action="register.php" method="POST">
+	        <form class="formConnection" action="register.php?nb_alea=<?php echo $_SESSION['aleat_nbr'];?>" method="POST">
 	            <h2>S'enregistrer</h2>
 	            <div class="imgcontainer">
 	                <img src="../IMG/avatar.png" alt="Avatar" class="avatar">

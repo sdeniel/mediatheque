@@ -75,8 +75,26 @@ header img[alt='Logo Afpa-Bay'] {
 	border-radius: 75px;
 	border-top-right-radius: 0px;
 }
-form input {
+form input, textarea {
 	color : black;
+}
+input:hover, :focus{
+	color : #777;
+}
+/*/////////////////////////////////////////////////////////////////////////////
+// CSS ACCUEIL
+/////////////////////////////////////////////////////////////////////////////*/
+.bonjour{
+	font-size: 2vw;
+	color : #700;
+	border : 2px solid white;
+	margin : 10px;
+	text-align: center;
+	height: 30px;
+	background-color: #FFF7;
+	border : 1px solid #700;
+	border-radius: 20px;
+	border-top-right-radius: 0px;
 }
 /*/////////////////////////////////////////////////////////////////////////////
 // CSS LOGIN
@@ -96,10 +114,11 @@ form input {
 	padding : 30px;
 	border: 2px solid white;
 	border-radius: 10px;
+	background-color: #700;
 }
-.formConnection {
-background-color: #700;
-}
+.formConnection:hover{
+	 background-color: #070;
+ }
 .formConnection img {
 	width : 50%;
 }

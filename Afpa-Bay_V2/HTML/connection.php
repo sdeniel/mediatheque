@@ -4,13 +4,13 @@ SI LOGIN ET MDP CORRESPONDANT A CEUX DE LA BASE DE DONNEES
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 
 <?php
-
+session_start();
 //Informations d'entrées du serveur + base de données (+ table associée ?)
 $_SESSION['serveur'] = "localhost";
 $_SESSION['pseudo'] = "root";
 $_SESSION['pass'] = "Afp4S3b!";
 $_SESSION['baseDonnees'] = "Afpa-Bay";
-
+$_SESSION['nomUser']= filter_input(INPUT_POST, 'pseudoCo', FILTER_SANITIZE_STRING);
 
 //Sécurisation des données saisies pour la connection
 $log = htmlspecialchars($_POST['pseudoCo']);

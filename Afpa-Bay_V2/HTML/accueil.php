@@ -35,6 +35,9 @@
 				  // PDO : PHP data object permet de se connecter à la BDD selectionnée : localisation, login&mdp admin
 				  $bdd = new PDO('mysql:host='.$_SESSION['serveur'].'; dbname='.$_SESSION['baseDonnees'].'; charset=utf8', $_SESSION['pseudo'], $_SESSION['pass']);
 					$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+					$allo = $bdd->query('SELECT * from login WHERE identifiant="'.$_SESSION['nomUser'].'"');
+					$hello = $allo->fetch();
+					echo "<p class='bonjour'>Bonjour à toi, invocateur ".$hello['pseudo']." !"."</p>";
 
 					// on fait une requête à la BDD pour savoir tout ce qu'il y a dans notre table ListeFilm affiliée à la BDD Afpa-Bay
 					if (!($_POST))

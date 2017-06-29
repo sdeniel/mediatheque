@@ -10,7 +10,6 @@
 		<link rel="stylesheet" href="../CSS/add.css">
 	</head>
 
-
 	<body>
 		<header>
 			<img alt="Logo Afpa-Bay" src="../IMG/logo.png" /></a>
@@ -18,7 +17,7 @@
 			<a href="accueil.php"><img alt="Logo Afpa-Bay" src="../IMG/logo.png" /></a>
 		</header>
 		<main>
-			<form method="POST" action="addFilm.php?ANNIHILER=false&edit=<?php echo $_GET['edit'];?>">
+			<form method="POST" action="addFilm.php?edit=<?php echo $_GET['edit'];?>">
 				<label>titre : </label><input type="text" name="titre" />
 				<label>réalisateur : </label><input type="text" name="realisateur" />
 				<label>acteurs : </label><input type="text" name="acteurs" />
@@ -27,21 +26,20 @@
 				<label>type</label><input type="text" name="type" />
 				<label>durée</label><input type="number" name="duree" />
 				<label>jacquette : </label><input type="url" name="image" />
-				<label>synopsis : </label><input type="textarea" name="synopsis">
+				<label>synopsis : </label><textarea name="synopsis"></textarea>
 				<label>nationalité</label><input type="text" name="nationalite" />
 				<label>trailer</label><input type="text" name="trailer" />
 				<input type="submit" name="ok" value="ok" />
 			</form>
 		</main>
-		<?php
 
+		<?php
 		if(isset($_POST)){
 			$bdd = new PDO('mysql:host='.$_SESSION['serveur'].'; dbname='.$_SESSION['baseDonnees'].'; charset=utf8', $_SESSION['pseudo'], $_SESSION['pass']);
 			$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			// Permet de générer la liste des erreurs pour pouvoir corriger plus efficacement !
 
 					// AJOUT D'UN NOUVEAU FILM
-					if ($_GET['edit'] == 0) {
 							$req = $bdd -> prepare ('INSERT INTO ListeFilm(titre, realisateur, acteurs, genres, dateParution, type, duree, image, synopsis, nationalite, trailer)
 							 											   VALUES(:titre, :realisateur, :acteurs, :genres, :dateParution, :type, :duree, :image, :synopsis, :nationalite, :trailer)');
 							$req->execute(array(
@@ -58,9 +56,7 @@
 									'trailer' => filter_input(INPUT_POST, 'trailer', FILTER_SANITIZE_STRING)
 									));
 									header('Location: accueil.php');
-					 }
 			}
-
 		?>
 	</body>
 </html>
