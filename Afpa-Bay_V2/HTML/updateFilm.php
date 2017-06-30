@@ -29,18 +29,14 @@
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
 
-        //if(isset($_GET['edit'])){
-            //$reponse = $bdd->prepare("SELECT * FROM ListeFilm WHERE id=".$_GET['edit']);
-            $reponse = $bdd->prepare('SELECT * FROM ListeFilm WHERE id="17"');
-        //    }
-        //else $reponse = $bdd->prepare("SELECT * FROM ListeFilm WHERE id=".$donnees['id']);
+        $reponse = $bdd->prepare("SELECT * FROM ListeFilm WHERE id=".$_GET['edit']);
         $reponse->execute();
         $donnees = $reponse->fetch();
 ?>
     <main>
-        <form method="POST" action="updateFilm.php">
+        <form method="POST" action="updateFilm.php?edit=<?php echo $_GET['edit']?>">
                <input type="hidden" name="id" value ='<?php echo $donnees['id'];?>'>
-               <label>titre : </label><input type="text" name="titre" value ='<?php echo $donnees['titre'];?>' disabled>
+               <label>titre : </label><input type="text" name="titre" value ='<?php echo $donnees['titre'];?>'>
                <label>réalisateur : </label><input type="text" name="realisateur" value ='<?php echo $donnees['realisateur'];?>'>
                <label>acteurs : </label><input type="text" name="acteurs" value ='<?php echo $donnees['acteurs'];?>'>
        				 <label>genres : </label><input type="text" name="genres" value ='<?php echo $donnees['genres'];?>'>
@@ -75,20 +71,8 @@ if(isset($_POST['validation'])) {
     $nationalite = filter_input(INPUT_POST, 'nationalite', FILTER_SANITIZE_STRING);
     $trailer = filter_input(INPUT_POST, 'trailer', FILTER_SANITIZE_STRING);
 
-    /*echo $id."<br/>";
-    echo $titre."<br/>";
-    echo $realisateur."<br/>";
-    echo $acteurs."<br/>";
-    echo $genres."<br/>";
-    echo $dateParution."<br/>";
-    echo $type."<br/>";
-    echo $duree."<br/>";
-    echo $image."<br/>";
-    echo $synopsis."<br/>";
-    echo $nationalite."<br/>";
-    echo $trailer."<br/>";*/
-
-    $modif = $bdd->prepare("UPDATE ListeFilm SET   realisateur=:realisateur,
+    $modif = $bdd->prepare("UPDATE ListeFilm SET   titre=:titre,
+                                                   realisateur=:realisateur,
                                                    acteurs=:acteurs,
                                                    genres=:genres,
                                                    dateParution=:dateParution,
@@ -99,7 +83,8 @@ if(isset($_POST['validation'])) {
                                                    nationalite=:nationalite,
                                                    trailer=:trailer
                                              WHERE id=".$_POST['id']);
-/*
+
+   $modif->bindParam(':titre', $titre);
    $modif->bindParam(':realisateur', $realisateur); // ou bindValue ?
    $modif->bindParam(':acteurs', $acteurs);
    $modif->bindParam('genres', $genres);
@@ -111,9 +96,10 @@ if(isset($_POST['validation'])) {
    $modif->bindParam('nationalite', $nationalite);
    $modif->bindParam('trailer', $trailer);
 
-   $modif->execute();
-   header('location : accueil.php');
-   */
+   if (!empty($titre)) {
+      $modif->execute();
+      header('Location: accueil.php');
+    }
 }
 
  ?>

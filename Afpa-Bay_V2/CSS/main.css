@@ -1,11 +1,6 @@
 /*/////////////////////////////////////////////////////////////////////////////
-// LES FONT FACE - pour une jolie plume
+// LES FONT FACE - pour une belle écriture
 /////////////////////////////////////////////////////////////////////////////*/
-@font-face {
-	font-family: 'iglesia';
-	src: url(../FONT/Iglesia-Light/Iglesia.otf);
-	src: url(../FONT/Iglesia-Light/Iglesia.ttf);
-}
 @font-face {
 	font-family: 'pirateBay';
 	src: url(../FONT/PiratesBay.ttf);
@@ -29,42 +24,45 @@ body {
 	background-position: top;
 	background-size: auto 100%;
 	background-attachment: fixed;
-	background-repeat: no-repeat;
 }
-/*Pour tous les liens*/
+/*/////////////////////////////////////////////////////////////////////////////
+// Ecriture des liens, titres et paragraphes
+/////////////////////////////////////////////////////////////////////////////*/
 a {
 	text-decoration: none;
 }
 a:hover {
 	text-decoration: underline;
 }
-/*Decoration des titre H1,H2,H3*/
 h1 {
 	color: white;
-	font-family: 'iglesia';
 	font-weight: lighter;
-	font-size: 7vw;
-	width: 100%;
+	font-size: 12vh;
 	text-align: center;
 }
 h2 {
-	font-size: 2vw;
+	font-size: 7vh;
 }
 h3 {
-	font-size: 1.5vw;
+	font-size: 3vh;
 	text-decoration: underline;
 }
 h3:visited, h3:hover {
 	background-color: #700;
 	text-transform: uppercase;
 }
-/* L'entête*/
+p {
+	font-size: 1.8vh;
+}
+/*/////////////////////////////////////////////////////////////////////////////
+// L'entête
+/////////////////////////////////////////////////////////////////////////////*/
 header {
 	margin-top: 20px;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	height: 150px; /* A reduire selon responsive */
+	height: 20%; /*150px; /* A reduire selon responsive */
 }
 header img {
 	height: 140px;
@@ -85,12 +83,11 @@ input:hover, :focus{
 // CSS ACCUEIL
 /////////////////////////////////////////////////////////////////////////////*/
 .bonjour{
-	font-size: 2vw;
+	font-size: 4vh;
 	color : #700;
 	border : 2px solid white;
 	margin : 10px;
 	text-align: center;
-	height: 30px;
 	background-color: #FFF7;
 	border : 1px solid #700;
 	border-radius: 20px;
@@ -131,6 +128,7 @@ input:hover, :focus{
 			flex-direction: column;
 		}
 		img {
+			height: 30%;
 			width : 30%;
 		}
 }
@@ -161,15 +159,6 @@ em::first-letter {
 	}
 	header {
 		height : 100px;
-	}
-	h1 {
-		font-size: 8vw;
-	}
-	h2 {
-		font-size: 1.5vw;
-	}
-	h3 {
-		font-size: 1.5vw;
 	}
 	ul {
 		width: 100%;
@@ -222,12 +211,6 @@ em::first-letter {
 @media screen and (max-width: 600px) {
 		header {
 		height : 70px;
-	}
-	h1 {
-		font-size: 10vw;
-	}
-	h3 {
-		font-size: 1.5vw;
 	}
 }
 
